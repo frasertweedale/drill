@@ -10,11 +10,8 @@ def _sort(xs):
     if len(xs) <= 1:
         return xs
     pivot = xs[0]
-    le = []
-    gt = []
+    l = []
+    r = []
     for x in xs[1:]:
-        if x <= pivot:
-            le.append(x)
-        else:
-            gt.append(x)
-    return _sort(le) + [pivot] + _sort(gt)
+        (l if x < pivot else r).append(x)
+    return _sort(l) + [pivot] + _sort(r)

@@ -19,4 +19,5 @@ class UpTestCase(unittest.TestCase):
     def test_sorts(self):
         xs = range(127)
         random.shuffle(xs)
-        self.assertEqual(mergesort.up(xs), sorted(xs))
+        mergesort.up(xs)
+        self.assertEqual(xs, range(127))
