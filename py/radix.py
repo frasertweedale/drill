@@ -1,6 +1,5 @@
-# lsd sort that handles 16-bit numbers, radix 16
-
 def lsd(xs):
+    """LSD sort that handles 16-bit numbers, radix 16."""
     exp = 4  # radix 16
     ys = [0 for x in xs]
     for i in xrange(16 / exp):

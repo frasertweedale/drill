@@ -4,6 +4,7 @@ class Node:
         self.next = None
         self.prev = None
 
+
 class OldestUnique:
     def __init__(self):
         self.uniq = {}

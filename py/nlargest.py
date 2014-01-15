@@ -4,6 +4,7 @@ class Node:
         self.prev = None
         self.next = None
 
+
 class NLargest:
     def __init__(self, n):
         self.n = n

@@ -300,6 +300,7 @@ class MSTTestCase(unittest.TestCase):
         mst = graph.PrimMST(self.g)
         self.assertItemsEqual(mst.edges, self.mst_edges)
 
+
 class ShortestPathsTestCase(unittest.TestCase):
     def test_shortest_path_returns_shortest_path(self):
         g = graph.EdgeWeightedGraph()

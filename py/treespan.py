@@ -3,6 +3,7 @@ class Tree:
         self.l = l
         self.r = r
 
+
 def treespan(tree):
     """Return max span of tree assuming all links have weight of 1."""
     if tree is None:

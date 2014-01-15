@@ -26,6 +26,8 @@ alphabet = {
     "25": "y",
     "26": "z",
 }
+
+
 def run(s):
     results = set()
     if s in alphabet:

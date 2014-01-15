@@ -12,6 +12,7 @@ from . import treespan
 #                /         \
 #               o           o
 
+
 class TreespanTestCase(unittest.TestCase):
     def test_treespan(self):
         leaf = treespan.Tree(None, None)

@@ -1,6 +1,5 @@
-# very naive NFA implementation (``*`` only, no parens or pipe)
-#
 def match(e, s):
+    """Very naive NFA implementation (``*`` only, no parens or pipe)"""
     e = e + '\0'  # None is accept state
     nfa = set([0])
     i = 0

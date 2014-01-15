@@ -217,7 +217,8 @@ class KruskalMST(object):
         cc_by_vertex = {}
         ccs = []
         self.edges = set()
-        sorted_edges = sorted(itertools.chain.from_iterable(g.edges.viewvalues()))
+        all_edges = itertools.chain.from_iterable(g.edges.viewvalues())
+        sorted_edges = sorted(all_edges)
         for edge in sorted_edges:
             v, w, weight = edge.v, edge.w, edge.weight
             vcc = cc_by_vertex.get(v, -1)

@@ -2,6 +2,7 @@ import unittest
 
 from . import nlargest
 
+
 class NLargestTestCase(unittest.TestCase):
     def test_nlargest(self):
         n5 = nlargest.NLargest(5)

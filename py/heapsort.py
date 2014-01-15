@@ -1,5 +1,6 @@
 from . import heap
 
+
 def sort(xs):
     h = heap.Min(items=xs)
     result = []

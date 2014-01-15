@@ -2,6 +2,7 @@ import unittest
 
 from . import oldest_unique
 
+
 class OldestUniqueTestCase(unittest.TestCase):
     def test_oldest_unique(self):
         o = oldest_unique.OldestUnique()
