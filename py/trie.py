@@ -12,8 +12,11 @@ class RWayTrie(object):
             self.r[ord(k[0])].put(k[1:], v)
 
     def get(self, k):
-        if len(k) == 0 and self.v is not None:
-            return self.v
+        if len(k) == 0:
+            if self.v is not None:
+                return self.v
+            else:
+                raise KeyError
         elif self.r[ord(k[0])] is not None:
             return self.r[ord(k[0])].get(k[1:])
         else:

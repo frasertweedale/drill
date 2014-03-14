@@ -20,6 +20,10 @@ class RWayTrieCase(unittest.TestCase):
             t.put(str(i), i)
         with self.assertRaises(KeyError):
             t.get('16')
+        t = trie.RWayTrie()
+        t.put('asdf', 1)
+        with self.assertRaises(KeyError):
+            t.get('a')
 
 
 class TernarySearchTrieCase(unittest.TestCase):
@@ -38,3 +42,7 @@ class TernarySearchTrieCase(unittest.TestCase):
             t.put(str(i), i)
         with self.assertRaises(KeyError):
             t.get('16')
+        t = trie.RWayTrie()
+        t.put('asdf', 1)
+        with self.assertRaises(KeyError):
+            t.get('a')
