@@ -11,6 +11,15 @@ class RWayTrie(object):
                 self.r[ord(k[0])] = RWayTrie()
             self.r[ord(k[0])].put(k[1:], v)
 
+    def prefix(self, k):
+        """Return true if k is a prefix or key in trie."""
+        if len(k) == 0:
+            return any(i for i in self.r)
+        elif self.r[ord(k[0])] is not None:
+            return self.r[ord(k[0])].prefix(k[1:])
+        else:
+            return False
+
     def get(self, k):
         if len(k) == 0:
             if self.v is not None:
@@ -21,6 +30,13 @@ class RWayTrie(object):
             return self.r[ord(k[0])].get(k[1:])
         else:
             raise KeyError
+
+    def __contains__(self, k):
+        try:
+            self.get(k)
+            return True
+        except KeyError:
+            return False
 
 
 class TernarySearchTrie(object):
