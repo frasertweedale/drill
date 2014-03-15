@@ -20,3 +20,14 @@ class RBTestCase(unittest.TestCase):
             t.put(str(i), i)
         with self.assertRaises(KeyError):
             t.get('16')
+
+    def test_iter_iterates_kv_pairs_in_order(self):
+        xs = range(100)
+        random.shuffle(xs)
+        t = rb.RB()
+        for i in xs:
+            t.put(str(i), i)
+        self.assertEqual(
+            [kv for kv in t],
+            sorted((str(i), i) for i in xrange(100))
+        )

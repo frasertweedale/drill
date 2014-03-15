@@ -10,6 +10,9 @@ class RB(object):
             self.l = None
             self.r = None
 
+        def __iter__(self):
+            return RBIter(self)
+
     def __init__(self):
         self.root = None
 
@@ -76,3 +79,37 @@ class RB(object):
             else:
                 return node.v
         raise KeyError
+
+    def __iter__(self):
+        return iter(self.root)
+
+
+class RBIter:
+    LT, EQ, GT = range(3)
+
+    def __init__(self, tree):
+        self.tree = tree
+        self.l_iter = None
+        self.r_iter = None
+        self.state = self.LT
+
+    def next(self):
+        if self.state == self.LT:
+            if not self.tree.l:
+                self.state = self.EQ
+            else:
+                if not self.l_iter:
+                    self.l_iter = iter(self.tree.l)
+                try:
+                    return next(self.l_iter)
+                except StopIteration:
+                    self.state = self.EQ
+        if self.state == self.EQ:
+            self.state = self.GT
+            return self.tree.k, self.tree.v
+        elif self.tree.r:
+            if not self.r_iter:
+                self.r_iter = iter(self.tree.r)
+            return next(self.r_iter)
+        else:
+            raise StopIteration
